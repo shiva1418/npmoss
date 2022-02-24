@@ -21,13 +21,3 @@ jobs:
    #   - run: npm version minor
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-#       - name: Download Artifact
-#         uses: actions/download-artifact@v2
-#         with:
-#          name: '${{ env.PROJECT-NAME }}.${{ env.VERSION-MAJOR }}.${{ env.VERSION-MINOR }}.${{ env.VERSION-PATCH }}.${{ github.run_number }}'    
-#       - name: Upload Artifact
-#         uses: actions/upload-artifact@v2
-#         with:
-#          name: '${{ env.PROJECT-NAME }}.${{ env.VERSION-MAJOR }}.${{ env.VERSION-MINOR }}.${{ env.VERSION-PATCH }}.${{ github.run_number }}'
-#          path: build/distributions/*.tgz
-#          if-no-files-found: error
