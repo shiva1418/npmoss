@@ -18,16 +18,16 @@ jobs:
       - run: npm install
       - run: npm ci
    #   - run: npm publish
-      - run: 
+      - run: npm publish | find . -type f -iname "package.json" | sed -r 's|/[^/]+$||' |sort |uniq
 #             Get-ChildItem -r -Include package.json | % {
 #               Write-Host $_.Directory
 #               Write-Host $_.FullName
 #               npm publish $_.Directory
 #            }
-             find ./node-modules -f "package.json"
-                Write-Host $_.Directory
-                Write-Host $_.FullName
-                npm publish $_.Directory
+#              find ./node-modules -f "package.json"
+#                 Write-Host $_.Directory
+#                 Write-Host $_.FullName
+#                 npm publish $_.Directory
  
    #   - run: npm version minor
         env:
