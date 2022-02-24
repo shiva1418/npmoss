@@ -17,7 +17,13 @@ jobs:
           scope: "shiva1418"
       - run: npm install
       - run: npm ci
-      - run: npm publish
+      - run: |
+          Get-ChildItem -r -Include package.json | % {
+              Write-Host $_.Directory
+              Write-Host $_.FullName
+              npm publish $_.Directory
+              ls
+          }
    #   - run: npm version minor
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
