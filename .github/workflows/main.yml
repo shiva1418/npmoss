@@ -24,7 +24,7 @@ jobs:
 #               Write-Host $_.FullName
 #               npm publish $_.Directory
 #            }
-             find . -type f "package.json"
+             find ./node-modules -f "package.json"
                 Write-Host $_.Directory
                 Write-Host $_.FullName
                 npm publish $_.Directory
