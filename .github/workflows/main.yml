@@ -18,12 +18,17 @@ jobs:
       - run: npm install
       - run: npm ci
    #   - run: npm publish
-      - run: |
-            find -Include package.json | % {
-              Write-Host $_.Directory
-              Write-Host $_.FullName
-              npm publish $_.Directory
-            }
+      - run: 
+#             Get-ChildItem -r -Include package.json | % {
+#               Write-Host $_.Directory
+#               Write-Host $_.FullName
+#               npm publish $_.Directory
+#            }
+             find . -type f iname "package.json"
+                Write-Host $_.Directory
+                Write-Host $_.FullName
+                npm publish $_.Directory
+ 
    #   - run: npm version minor
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
