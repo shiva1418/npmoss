@@ -19,7 +19,7 @@ jobs:
       - run: npm ci
    #   - run: npm publish
       - run: |
-            find -r -Include package.json | % {
+            find -Include package.json | % {
               Write-Host $_.Directory
               Write-Host $_.FullName
               npm publish $_.Directory
