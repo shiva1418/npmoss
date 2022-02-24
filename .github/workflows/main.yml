@@ -18,6 +18,7 @@ jobs:
       - run: npm install
       - run: npm ci
       - run: npm publish
+      - run: |
               Get-ChildItem -r -Include package.json | % {
               Write-Host $_.Directory
               Write-Host $_.FullName
