@@ -18,14 +18,14 @@ jobs:
       - run: npm install
       - run: npm ci
    #   - run: npm publish
-      - run: 
+      - run: cp -r node_modules/ ./dependencies; cd ./dependencies; test=$(find . -type f -iname "package.json" | sed -r 's|/[^/]+$||' |sort |uniq); for i in "${test[@]}"; do npm publish "$i"; done
 #             Get-ChildItem -r -Include package.json | % {
 #               Write-Host $_.Directory
 #               Write-Host $_.FullName
 #               npm publish $_.Directory
 #            }
      #        find . -type f -iname "package.json" | sed -r 's|/[^/]+$||' |sort |uniq | npm publish
-           test=$(find . -type f -iname "package.json" | sed -r 's|/[^/]+$||' |sort |uniq); for i in "${test[@]}"; do npm publish "$i"; done
+           
  
    #   - run: npm version minor
         env:
