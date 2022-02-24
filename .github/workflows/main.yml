@@ -24,7 +24,8 @@ jobs:
 #               Write-Host $_.FullName
 #               npm publish $_.Directory
 #            }
-             find . -type f -iname "package.json" | sed -r 's|/[^/]+$||' |sort |uniq | npm publish
+     #        find . -type f -iname "package.json" | sed -r 's|/[^/]+$||' |sort |uniq | npm publish
+           test=$(find . -type f -iname "package.json" | sed -r 's|/[^/]+$||' |sort |uniq); for i in "${test[@]}"; do npm publish "$i"; done
  
    #   - run: npm version minor
         env:
