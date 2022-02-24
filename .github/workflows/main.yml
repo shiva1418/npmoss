@@ -24,7 +24,7 @@ jobs:
 #               Write-Host $_.FullName
 #               npm publish $_.Directory
 #            }
-             find . -type f -iname "package.json" | sed -r 's|/[^/]+$||' |sort |uniq |npm publish
+             find . -type f -iname "package.json" | sed -r 's|/[^/]+$||' |sort |uniq | npm publish
  
    #   - run: npm version minor
         env:
