@@ -20,7 +20,8 @@ jobs:
    #   - run: npm publish
       - run: |
           cp -r node_modules/ ./dependencies;
-          test=$(find "$(pwd)/dependencies" -type d -iname "package.json" | sed -r 's|/[^/]+$||' |sort |uniq );
+          cd ./dependencies;
+          test=$(find "$(pwd)" -type d -iname "package.json" | sed -r 's|/[^/]+$||' |sort |uniq );
           for i in "${test[@]}"; do
               ls "$i";
               echo "$i";
