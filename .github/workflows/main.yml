@@ -22,7 +22,9 @@ jobs:
           cp -r node_modules/ ./dependencies;
           cd ./dependencies;
           test=$(find "$(pwd)" -type f -iname "package.json" |sed -r 's|/[^/]+$||' |sort |uniq );
-          for i in "${test[@]}"; do
+          #for i in "${test[@]}"; do
+          while IFS= test -r i
+          do
               echo $i;
               ls $i;
               cd "$i";
