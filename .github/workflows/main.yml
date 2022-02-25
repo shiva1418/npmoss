@@ -26,8 +26,7 @@ jobs:
           do 
               cd ${subdir}     
               npm config set registry "https://npm.pkg.github.com/shiva1418/"
-              npm config set scope "shiva1418"
-             npm publish
+              npm publish
               env:
                 NODE_AUTH_TOKEN: ${{ secrets.GHP_TOKEN }}
                 GITHUB_TOKEN: ${{ secrets.GHP_TOKEN }}
