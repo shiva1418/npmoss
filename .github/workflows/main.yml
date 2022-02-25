@@ -23,7 +23,8 @@ jobs:
           cd ./dependencies;
           test=$(find "$(pwd)/dependencies" -type d -iname "package.json" | sed -r 's|/[^/]+$||' |sort |uniq );
           for i in "${test[@]}"; do
-              ls $i;
+              ls '$i';
+              echo '$i';
           done
 #             Get-ChildItem -r -Include package.json | % {
 #               Write-Host $_.Directory
