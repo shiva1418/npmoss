@@ -21,11 +21,11 @@ jobs:
       - run: |
           cp -r node_modules/ ./dependencies;
           cd ./dependencies;
-          npm config set registry "https://npm.pkg.github.com/"
           parentdirectory=$(find "$(pwd)" -type f -iname "package.json" | sed -r 's|/[^/]+$||' |sort |uniq );
           for subdir in ${parentdirectory}
           do 
               cd ${subdir}     
+              npm config set registry "https://npm.pkg.github.com/"
               npm publish
               env:
                 NODE_AUTH_TOKEN: ${{ secrets.GHP_TOKEN }}
