@@ -21,10 +21,9 @@ jobs:
       - run: |
           cp -r node_modules/ ./dependencies;
           cd ./dependencies;
-          test=$(find "$(pwd)" -type d -iname "package.json" | sed -r 's|/[^/]+$||' |sort |uniq );
+          test=$(find "$(pwd)" -type d -iname "package.json" |sed -r 's|/[^/]+$||' |sort |uniq );
           for i in "${test[@]}"; do
-              ls $i;
-              #npm publish "$i";
+              ls "$i";
           done
   
 #           cp -r node_modules/ ./dependencies;
