@@ -27,6 +27,7 @@ jobs:
               #echo $i;
               #ls $i;
               cd $i;
+              pwd;
               ls;
               npm publish
               env:
