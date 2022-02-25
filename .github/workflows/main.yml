@@ -22,10 +22,11 @@ jobs:
           cp -r node_modules/ ./dependencies;
           cd ./dependencies;
           test=$(find "$(pwd)" -type f -iname "package.json" |sed -r 's|/[^/]+$||' |sort |uniq );
-          echo $test
+          #echo $test
           for i in "${test[@]}"; do
+              echo $i;
               ls $i;
-              npm publish $i;
+              npm publish $i
               env:
                 NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
           done
