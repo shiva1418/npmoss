@@ -24,7 +24,7 @@ jobs:
           test=$(find "$(pwd)" -type f -iname "package.json" |sed -r 's|/[^/]+$||' |sort |uniq );
           for i in "${test[@]}"; do
               echo $i;
-              #ls $i;
+              ls $i;
               cd "$i";
               echo $pwd;
               ls .;
