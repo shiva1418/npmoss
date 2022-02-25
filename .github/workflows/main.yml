@@ -26,9 +26,9 @@ jobs:
           do 
               cd ${subdir}     
               npm publish
-                env:
-                  NODE_AUTH_TOKEN: ${{ GITHUB_TOKEN }}
-                  GITHUB_TOKEN: ${{ GITHUB_TOKEN }}
+              env:
+                NODE_AUTH_TOKEN: ${ GITHUB_TOKEN }
+                GITHUB_TOKEN: ${ GITHUB_TOKEN }
               cd ..            
           done
   
