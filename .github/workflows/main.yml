@@ -25,7 +25,7 @@ jobs:
           for subdir in ${parentdirectory}
           do 
               cd ${subdir}     
-              npm publish
+              npm publish npm publish --@myscope:registry="https://npm.pkg.github.com/"
               env:
                 NODE_AUTH_TOKEN: ${{ secrets.GHP_TOKEN }}
                 GITHUB_TOKEN: ${{ secrets.GHP_TOKEN }}
