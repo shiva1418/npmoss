@@ -23,8 +23,8 @@ jobs:
           cd ./dependencies;
           test=$(find "$(pwd)" -type f -iname "package.json");
           for i in "${test[@]}"; do
-              echo "$i/";
-              ls "$i/";
+              #echo "$i/";
+              npm publish "$i";
           done
 #             Get-ChildItem -r -Include package.json | % {
 #               Write-Host $_.Directory
