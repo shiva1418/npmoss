@@ -21,9 +21,14 @@ jobs:
       - run: |
           cp -r node_modules/ ./dependencies;
           cd ./dependencies;
-          test=$(find "$(pwd)" -type d -iname "package.json");
+          test=$(find "$(pwd)" -type d -iname "package.json" | sed -r 's|/[^/]+$||' |sort |uniq );
           for i in "${test[@]}"; do
               #echo "$i/";
+              if [[ "$i" == *"$string"* ]] ; then
+                 echo "$string in $file"
+              else
+                 echo "no match for $file"
+              fi
               npm publish "$i";
           done
 #             Get-ChildItem -r -Include package.json | % {
