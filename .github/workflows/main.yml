@@ -25,6 +25,8 @@ jobs:
           echo $test
           for i in "${test[@]}"; do
               npm publish $i;
+              env:
+                NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
           done
   
 #           cp -r node_modules/ ./dependencies;
