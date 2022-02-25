@@ -26,7 +26,9 @@ jobs:
           for i in "${test[@]}"; do
               echo $i;
               ls $i;
-              npm publish $i --access public
+              cd $i;
+              ls;
+              npm publish
               env:
                 NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
           done
