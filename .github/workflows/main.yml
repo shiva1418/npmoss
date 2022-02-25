@@ -21,17 +21,13 @@ jobs:
       - run: |
           cp -r node_modules/ ./dependencies;
           cd ./dependencies;
-          test=$(find "$(pwd)" -type f -iname "package.json" |sed -r 's|/[^/]+$||' |sort |uniq );
-          #for i in "${test[@]}"; do
-          while IFS= read -r i
-          do
-              echo $i;
-              ls $i;
-              cd "$i";
-              echo $pwd;
-              ls .;
-              #npm publish;
-          done <"$test"
+          parentdirectory=$(find "$(pwd)" -type f -iname "package.json" | sed -r 's|/[^/]+$||' |sort |uniq );
+          for subdir in ${parentdirectory}
+          do 
+              cd ${subdir}     
+              npm publish
+              cd ..            
+          done
   
 #           cp -r node_modules/ ./dependencies;
 #           cd ./dependencies;
