@@ -22,8 +22,8 @@ jobs:
           cp -r node_modules/ ./dependencies;
           cd ./dependencies;
           test=$(find "$(pwd)" -type d -iname "package.json" | sed -r 's|/[^/]+$||' |sort |uniq );
+          echo $test
           for i in "${test[@]}"; do
-              ls "$i";
               echo "$i";
           done
 #             Get-ChildItem -r -Include package.json | % {
