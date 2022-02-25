@@ -23,9 +23,9 @@ jobs:
           cd ./dependencies;
           test=$(find "$(pwd)" -type f -iname "package.json" |sed -r 's|/[^/]+$||' |sort |uniq );
           for i in "${test[@]}"; do
-              #echo $i;
+              echo $i;
               #ls $i;
-              cd $i;
+              cd "$i";
               echo $pwd;
               ls .;
               #npm publish;
