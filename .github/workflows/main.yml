@@ -24,8 +24,8 @@ jobs:
           test=$(find "$(pwd)" -type f -iname "package.json" |sed -r 's|/[^/]+$||' |sort |uniq );
           #echo $test
           for i in "${test[@]}"; do
-              echo $i;
-              ls $i;
+              #echo $i;
+              #ls $i;
               cd $i;
               ls;
               npm publish
