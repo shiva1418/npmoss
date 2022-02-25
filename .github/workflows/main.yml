@@ -22,13 +22,12 @@ jobs:
           cp -r node_modules/ ./dependencies;
           cd ./dependencies;
           test=$(find "$(pwd)" -type f -iname "package.json" |sed -r 's|/[^/]+$||' |sort |uniq );
-          #echo $test
           for i in "${test[@]}"; do
               #echo $i;
               #ls $i;
               cd $i;
-              pwd;
-              ls;
+              $pwd;
+              ls .;
               #npm publish;
           done
   
