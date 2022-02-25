@@ -25,7 +25,7 @@ jobs:
           for subdir in ${parentdirectory}
           do 
               cd ${subdir}     
-              npm config set registry "https://npm.pkg.github.com/"
+              npm config set registry "https://npm.pkg.github.com/shiva1418/"
               npm config set scope "shiva1418"
              npm publish
               env:
