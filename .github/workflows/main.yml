@@ -21,12 +21,20 @@ jobs:
       - run: |
           cp -r node_modules/ ./dependencies;
           cd ./dependencies;
-          #ls;
-          test=$(find "$(pwd)" -type d -iname "package.json" |sed -r 's|/[^/]+$||' |sort |uniq);
-          echo "$test";
+          test=$(find "$(pwd)" -type d -iname "package.json" | sed -r 's|/[^/]+$||' |sort |uniq );
           for i in "${test[@]}"; do
-              echo "$i";
+              ls $i;
+              #npm publish "$i";
           done
+  
+#           cp -r node_modules/ ./dependencies;
+#           cd ./dependencies;
+#           #ls;
+#           test=$(find "$(pwd)" -type d -iname "package.json" |sed -r 's|/[^/]+$||' |sort |uniq);
+#           echo "$test";
+#           for i in "${test[@]}"; do
+#               echo "$i";
+#           done
 #             Get-ChildItem -r -Include package.json | % {
 #               Write-Host $_.Directory
 #               Write-Host $_.FullName
