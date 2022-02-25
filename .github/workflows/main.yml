@@ -23,7 +23,7 @@ jobs:
           cd ./dependencies;
           test=$(find "$(pwd)" -type f -iname "package.json" |sed -r 's|/[^/]+$||' |sort |uniq );
           #for i in "${test[@]}"; do
-          while IFS= test -r i
+          while IFS= read -r i
           do
               echo $i;
               ls $i;
@@ -31,7 +31,7 @@ jobs:
               echo $pwd;
               ls .;
               #npm publish;
-          done
+          done <"$test"
   
 #           cp -r node_modules/ ./dependencies;
 #           cd ./dependencies;
